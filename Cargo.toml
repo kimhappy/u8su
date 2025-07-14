@@ -1,0 +1,8 @@
+[package]
+name        = 'u8su'
+authors     = ['Hwanhee Kim <kimhappyofficial@gmail.com>']
+license     = 'MIT'
+description = 'A utility library with u8 slices'
+repository  = 'https://github.com/kimhappy/u8su'
+version     = '0.1.0'
+edition     = '2024'
