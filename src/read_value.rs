@@ -3,18 +3,13 @@ use std::{
     mem::MaybeUninit };
 use crate::AsBytesMutExt;
 
-pub trait ReadValue< T > {
-    fn read_value(&mut self) -> Result< T >;
-}
-
-impl< R, T > ReadValue< T > for R
-where
-    R: Read,
-    T: AsBytesMutExt
-{
-    fn read_value(&mut self) -> Result< T > {
+pub trait ReadValueExt: Read {
+    fn read_value< T >(&mut self) -> Result< T >
+    where
+        T: AsBytesMutExt
+    {
         let mut value = unsafe { MaybeUninit::< T >::uninit().assume_init() };
-        let     slice = value.as_bytes_mut();
+        let     slice = unsafe { value.as_bytes_mut() };
         self.read_exact(slice).map(|_| value)
     }
 }

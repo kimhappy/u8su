@@ -22,4 +22,7 @@ where
     T: ZeroablePrimitive
 {}
 
-impl< T: Pod, const N: usize > Pod for [T; N] {}
+impl< T, const N: usize > Pod for [T; N]
+where
+    T: Pod
+{}

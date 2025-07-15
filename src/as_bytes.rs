@@ -1,4 +1,4 @@
-use core::slice::from_raw_parts;
+use core::{ mem::size_of, slice::from_raw_parts };
 use crate::Pod;
 
 pub trait AsBytesExt {
@@ -18,7 +18,7 @@ where
 
 impl< T > AsBytesExt for [T]
 where
-    T: Sized,
+    T: Pod
 {
     fn as_bytes(&self) -> &[u8] {
         let ptr = self.as_ptr() as *const u8;
