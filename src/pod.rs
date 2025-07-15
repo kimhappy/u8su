@@ -1,6 +1,14 @@
 use core::num::{ NonZero, ZeroablePrimitive };
 
-pub trait Pod: Sized {}
+pub trait Pod: Sized {
+    fn as_byte_ptr(&self) -> *const u8 {
+        self as *const _ as *const u8
+    }
+
+    fn num_bytes() -> usize {
+        size_of::< Self >()
+    }
+}
 
 impl Pod for u8    {}
 impl Pod for u16   {}

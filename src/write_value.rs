@@ -2,7 +2,10 @@ use std::io::{ Write, Result };
 use crate::AsBytesExt;
 
 pub trait WriteValueExt: Write {
-    fn write_value< T >(&mut self, value: &T) -> Result< () >
+    fn write_value< T >(
+        &mut self,
+        value: &T
+    ) -> Result< () >
     where
         T: AsBytesExt
     {
