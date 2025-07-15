@@ -7,7 +7,7 @@ pub trait WriteValueExt: Write {
         value: &T
     ) -> Result< () >
     where
-        T: AsBytesExt
+        T: AsBytesExt + ?Sized
     {
         self.write_all(value.as_bytes())
     }
