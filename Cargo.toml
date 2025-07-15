@@ -4,5 +4,5 @@ authors     = ['Hwanhee Kim <kimhappyofficial@gmail.com>']
 license     = 'MIT'
 description = 'A utility library with u8 slices'
 repository  = 'https://github.com/kimhappy/u8su'
-version     = '0.5.0'
+version     = '0.6.0'
 edition     = '2024'

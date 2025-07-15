@@ -40,3 +40,8 @@ pub trait ReadValueExt: Read {
         self.read_value_to(&mut values[..]).map(|_| values)
     }
 }
+
+impl< T > ReadValueExt for T
+where
+    T: Read
+{}

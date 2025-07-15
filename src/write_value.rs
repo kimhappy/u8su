@@ -12,3 +12,8 @@ pub trait WriteValueExt: Write {
         self.write_all(value.as_bytes())
     }
 }
+
+impl< T > WriteValueExt for T
+where
+    T: Write
+{}
